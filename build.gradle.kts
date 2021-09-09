@@ -11,7 +11,7 @@ repositories {
 }
 
 application {
-    mainClass.set("CommandKt")
+    mainClass.set("GenerateReleaseKt")
 }
 
 dependencies {
