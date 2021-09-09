@@ -10,9 +10,9 @@ repositories {
     mavenCentral()
 }
 
-//application {
-//    mainClass.set("Hello")
-//}
+application {
+    mainClass.set("CommandKt")
+}
 
 dependencies {
     implementation(kotlin("stdlib"))

@@ -4,7 +4,7 @@ import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.options.prompt
 import com.github.ajalt.clikt.parameters.types.int
 
-class Hello : CliktCommand() {
+class Command : CliktCommand() {
     private val count: Int by option(help="Number of greetings").int().default(1)
     private val name: String by option(help="The person to greet").prompt("Your name")
 
@@ -15,4 +15,4 @@ class Hello : CliktCommand() {
     }
 }
 
-fun main(args: Array<String>) = Hello().main(args)
+fun main(args: Array<String>) = Command().main(args)

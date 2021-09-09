@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-./gradlew --quiet "installDist" && "./build/install/release-cli/bin/release-cli" HelloKt "$@"
+./gradlew --quiet "installDist" && "./build/install/release-cli/bin/release-cli" "$@"
