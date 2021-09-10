@@ -3,6 +3,11 @@ package markdown.parser
 import model.Document
 import model.Project
 import model.Section
+import java.io.File
+
+fun parseReleaseDocument(file: File): Document {
+    return parseReleaseDocument(file.readLines())
+}
 
 fun parseReleaseDocument(lines: List<String>): Document {
     val document = Document(mutableListOf())

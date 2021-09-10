@@ -4,7 +4,6 @@ import model.Document
 import model.Section
 
 interface Printer {
-
     fun print(text: String)
 }
 

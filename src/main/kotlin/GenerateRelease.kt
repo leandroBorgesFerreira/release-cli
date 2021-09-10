@@ -12,7 +12,7 @@ class GenerateRelease : CliktCommand() {
     override fun run() {
         echo("File path: ${file.absolutePath}\n")
 
-        parseReleaseDocument(file.readLines())
+        parseReleaseDocument(file)
             .clean()
             .print(StdoutPrinter())
     }
