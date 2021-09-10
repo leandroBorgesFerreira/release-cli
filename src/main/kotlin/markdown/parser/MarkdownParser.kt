@@ -1,4 +1,4 @@
-package parser
+package markdown.parser
 
 import model.Document
 import model.Project
@@ -20,7 +20,13 @@ fun parseReleaseDocument(lines: List<String>): Document {
                 }
 
                 currentProjectSections.add(Section(currentSectionLines))
-                document.add(Project(currentProjectSections))
+                val project = Project(currentProjectSections)
+                document.add(project)
+
+//                println("Project -----")
+//                printProject(project)
+//                println("Project end -----")
+
                 currentSectionLines = mutableListOf(line)
                 currentProjectSections = mutableListOf()
             }
@@ -39,6 +45,10 @@ fun parseReleaseDocument(lines: List<String>): Document {
     return document
 }
 
-private fun isStartOfProject(line: String) = line.startsWith("##") && !line.startsWith("###")
+fun isStartOfProject(line: String) = line.startsWith("##") && !line.startsWith("###")
 
-private fun isStartOfSection(line: String) = line.startsWith("###")
+fun isStartOfSection(line: String) = line.startsWith("###")
+
+private fun printProject(project: Project) {
+    project.flatten().forEach(::println)
+}
