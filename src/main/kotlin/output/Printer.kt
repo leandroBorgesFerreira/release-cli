@@ -1,6 +1,7 @@
 package output
 
 import model.Document
+import model.Section
 
 interface Printer {
 
@@ -8,9 +9,12 @@ interface Printer {
 }
 
 fun Document.print(printer: Printer) {
-    flatten().flatten().forEach(printer::print)
+    flatten().print(printer)
 }
 
-fun List<String>.print(printer: Printer) {
-    forEach(printer::print)
+fun List<Section>.print(printer: Printer) {
+    forEach { section ->
+        section.forEach(printer::print)
+        printer.print("")
+    }
 }

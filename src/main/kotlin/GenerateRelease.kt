@@ -1,7 +1,7 @@
 import com.github.ajalt.clikt.core.CliktCommand
 import com.github.ajalt.clikt.parameters.arguments.argument
 import com.github.ajalt.clikt.parameters.types.file
-import markdown.cleanLines
+import markdown.clean
 import output.StdoutPrinter
 import markdown.parser.parseReleaseDocument
 import output.print
@@ -13,7 +13,7 @@ class GenerateRelease : CliktCommand() {
         echo("File path: ${file.absolutePath}\n")
 
         parseReleaseDocument(file.readLines())
-            .cleanLines()
+            .clean()
             .print(StdoutPrinter())
     }
 }

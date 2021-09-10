@@ -6,9 +6,6 @@ import model.Section
 
 fun parseReleaseDocument(lines: List<String>): Document {
     val document = Document(mutableListOf())
-    var isCurrentProjectValid = false
-    var isCurrentSectionValid = false
-
     var currentProjectSections = mutableListOf<Section>()
     var currentSectionLines = mutableListOf<String>()
 
@@ -20,12 +17,7 @@ fun parseReleaseDocument(lines: List<String>): Document {
                 }
 
                 currentProjectSections.add(Section(currentSectionLines))
-                val project = Project(currentProjectSections)
-                document.add(project)
-
-//                println("Project -----")
-//                printProject(project)
-//                println("Project end -----")
+                document.add(Project(currentProjectSections))
 
                 currentSectionLines = mutableListOf(line)
                 currentProjectSections = mutableListOf()
@@ -51,4 +43,8 @@ fun isStartOfSection(line: String) = line.startsWith("###")
 
 private fun printProject(project: Project) {
     project.flatten().forEach(::println)
+}
+
+private fun printSection(section: Section) {
+    section.forEach(::println)
 }
