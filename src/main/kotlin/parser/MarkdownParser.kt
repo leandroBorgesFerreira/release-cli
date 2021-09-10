@@ -13,26 +13,25 @@ fun parseReleaseDocument(lines: List<String>): Document {
     var currentSectionLines = mutableListOf<String>()
 
     lines.forEachIndexed { i, line ->
-        currentSectionLines.add(line)
-
         when {
-            isStartOfProject(line) && isCurrentProjectValid || i == lines.lastIndex -> {
-                isCurrentProjectValid = false
-                isCurrentSectionValid = false
+            isStartOfProject(line) || i == lines.lastIndex -> {
+                if (i == lines.lastIndex) {
+                    currentSectionLines.add(line)
+                }
+
+                currentProjectSections.add(Section(currentSectionLines))
                 document.add(Project(currentProjectSections))
-                currentSectionLines = mutableListOf()
+                currentSectionLines = mutableListOf(line)
                 currentProjectSections = mutableListOf()
             }
 
-            isStartOfSection(line) && isCurrentSectionValid -> {
-                isCurrentSectionValid = false
+            isStartOfSection(line) -> {
                 currentProjectSections.add(Section(currentSectionLines))
-                currentSectionLines = mutableListOf()
+                currentSectionLines = mutableListOf(line)
             }
 
             line.startsWith("-") -> {
-                isCurrentProjectValid = true
-                isCurrentSectionValid = true
+                currentSectionLines.add(line)
             }
         }
     }
