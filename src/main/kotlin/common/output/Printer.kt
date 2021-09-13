@@ -1,7 +1,7 @@
-package output
+package common.output
 
-import model.Document
-import model.Section
+import commands.changelog.model.Document
+import commands.changelog.model.Section
 
 interface Printer {
     fun print(text: String)

@@ -1,2 +1,2 @@
-rootProject.name = "release-cli"
+rootProject.name = "android-cli"
 

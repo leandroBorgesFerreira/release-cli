@@ -1,8 +1,8 @@
-package extensions
+package commands.changelog.extensions
 
-import model.Document
-import model.Project
-import model.Section
+import commands.changelog.model.Document
+import commands.changelog.model.Project
+import commands.changelog.model.Section
 
 fun List<List<Section>>.toDocument(): Document =
     this.map { sections ->

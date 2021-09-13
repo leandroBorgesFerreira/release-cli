@@ -1,8 +1,8 @@
-package markdown.parser
+package commands.changelog.markdown.parser
 
-import model.Document
-import model.Project
-import model.Section
+import commands.changelog.model.Document
+import commands.changelog.model.Project
+import commands.changelog.model.Section
 import java.io.File
 
 fun parseReleaseDocument(file: File): Document {

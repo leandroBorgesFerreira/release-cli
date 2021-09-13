@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.kapt3.base.Kapt.kapt
+
 plugins {
     kotlin("jvm") version "1.5.21"
     application
@@ -11,10 +13,11 @@ repositories {
 }
 
 application {
-    mainClass.set("GenerateReleaseKt")
+    mainClass.set("AndroidCliKt")
 }
 
 dependencies {
     implementation(kotlin("stdlib"))
     implementation("com.github.ajalt.clikt:clikt:3.2.0")
+    implementation("com.squareup.moshi:moshi-kotlin:1.12.0")
 }

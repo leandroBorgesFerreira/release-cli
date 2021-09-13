@@ -22,7 +22,7 @@ If you would like to try it out, run:
 ./build/install/release-cli/bin/release-cli UNRELEASED_CHANGELOG.md
 ```
 
-After creating the CLI and you'll have the release output in your STDOUT. 
+After creating the CLI and you'll have the release common.output in your STDOUT. 
 
 You can also use the `run.sh` script:
 
