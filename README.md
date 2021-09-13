@@ -24,3 +24,9 @@ If you would like to try it out, run:
 
 After creating the CLI and you'll have the release output in your STDOUT. 
 
+You can also use the `run.sh` script:
+
+```
+./run.sh UNRELEASED_CHANGELOG.md
+```
+
